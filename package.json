@@ -4,7 +4,7 @@
   "description": "How to build the library yourself:",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack -d && webpack-dev-server --content-base src/ --inline --hot --port 1234"
+    "build": "webpack && webpack-dev-server --content-base src/ --inline --hot --port 1234"
   },
   "repository": {
     "type": "git",

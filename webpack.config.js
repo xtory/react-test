@@ -1,28 +1,26 @@
-var webpack = require('webpack');
 var path = require('path');
 
 var SRC_DIR = path.resolve(__dirname, 'src');
 var DIST_DIR = path.resolve(__dirname, 'dist');
 
-var config = {
-    entry: SRC_DIR + '/app/index.js',
+module.exports = {
+    entry: path.resolve(SRC_DIR, 'app/main.jsx'),
     output: {
-        path: DIST_DIR + '/app/',
+        path: DIST_DIR,
         filename: 'bundle.js',
-        publicPath: '/app/'
+        publicPath: '/app/',
+        sourceMapFilename: 'bundle.map'
     },
     module: { 
         loaders: [
             {
-                test: /\.js$/,
-                include: SRC_DIR,
+                test: /\.jsx$/,
                 loader: 'babel-loader',
                 query: {
-                    presets: [ 'react', 'es2015' ]
+                    presets: [ 'es2015', 'react' ]
                 }
             }
         ]
-    }
+    },
+    devtool: 'source-map'
 };
-
-module.exports = config;
